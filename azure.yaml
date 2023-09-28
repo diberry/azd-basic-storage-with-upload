@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: azd-storage-upload-example
+metadata:
+  template: azd-storage-upload-example@0.0.1
+hooks:
+  postprovision:
+    shell: 'sh'
+    continueOnError: false
+    interactive: true
+
+    # TODO: provide a cross platform way to run this script
+    run: ./scripts/upload.sh
