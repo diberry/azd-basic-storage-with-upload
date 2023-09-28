@@ -1,0 +1,4 @@
+.env
+.azure
+node_modules/
+.coverage
