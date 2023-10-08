@@ -10,4 +10,4 @@ hooks:
     interactive: true
 
     # TODO: provide a cross platform way to run this script
-    run: chmod +x ./scripts/upload.sh
+    run: chmod +x ./scripts/upload.sh && ./scripts/upload.sh
