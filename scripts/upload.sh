@@ -25,6 +25,15 @@ cd "../"
 
 az storage blob upload-batch --account-name $storageAccountName --account-key $storageAccountKey --destination $container --source ./blobs/ --pattern *.jpg
 
+# list blobs in container and count the number of lines in the output
+blobCount=$(az storage blob list --account-name "$storageAccountName" --account-key "$storageAccountKey" --container-name "$container" --query "[].name" --output tsv | wc -l)
 
+# check if the blob count is greater than 0
+if [[ "$blobCount" -gt 0 ]]; then
+  echo "The container has $blobCount blobs."
+else
+  echo "The container is empty."
+  exit 1
+fi
 
 echo "Upload files to Azure Storage completed"
